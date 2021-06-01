@@ -1,0 +1,31 @@
+.footer .container { 
+    background-color: rgb(162, 181, 205); 
+    height: 100px; 
+    border-top: 4px solid rgb(131, 111, 255)/*rgb(255, 127, 0)*/; 
+    padding: 0; 
+    margin: 0; 
+} 
+
+.footer { 
+    width: 100%; 
+} 
+
+.redes-sociais { 
+    float: left; 
+    width: 150px; 
+    margin: 30px; 
+    cursor: pointer;
+} 
+
+.logo-footer { 
+    float: right; 
+    width: 200px; 
+    margin-right: 10px; 
+}  
+
+.direitos-footer { 
+    margin-left: 410px; 
+    font-size: 6px; 
+    float: left; 
+    margin-top: 70px; 
+} 

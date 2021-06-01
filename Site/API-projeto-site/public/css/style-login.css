@@ -1,0 +1,57 @@
+.pag-login {
+    background-color: #ecf0f1;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.pag-login h1 {
+    margin: 20px;
+    color: rgb(85, 26, 139);
+    font-weight: bolder;
+}
+
+.pag-login .input-padrao {
+    width: 50%;
+    display: inline-block;
+}
+
+.box-login {
+    display: inline-block;
+    background-color: white;
+    box-shadow:  3px 3px 5px 2px #ccc;
+    padding: 20px;
+    border-radius: 20px;
+    width: 400px;
+}
+
+.pag-login  {
+    display: block;
+    float: none;
+    margin: auto;
+}
+
+.btn-login {
+    background-color: gainsboro;
+    border: 1px solid grey;
+    padding: 6px;
+    width: 250px;
+    margin: 8px;
+    border-radius: 10px;
+}
+
+.btn-login a{
+    color: black;
+}
+
+.btn-login:hover {
+    background-color: rgb(131, 111, 255);
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+}
+
+.input-padrao {
+    background-color: whitesmoke;
+    border: 1px solid rgb(85, 26, 139);
+    padding: 10px;
+}

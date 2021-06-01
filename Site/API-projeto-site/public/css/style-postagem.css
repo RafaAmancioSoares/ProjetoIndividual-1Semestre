@@ -1,0 +1,73 @@
+.postagem {
+    width: 900px;
+    margin: auto;
+    background-color: blue;
+    border-radius: 20px;
+}
+
+.nomeUsuario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.comentario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.textarea-padrao{
+    width: 800px;
+}
+
+.feed{
+    margin: 20px;
+}
+
+.feed-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    height: 200px;
+    background-color: coral;
+}
+
+.lista-favoritos{
+    border: 2px solid rgb(131, 111, 255); 
+    border-radius: 10px; 
+    padding: 20px;
+    background-color: whitesmoke;
+}
+
+.titulo-lista{
+    margin: 10px;
+}
+
+.input-lista {
+    background-color: whitesmoke;
+    border: 1px solid rgb(85, 26, 139);
+    padding: 5px;
+    margin: 10px;
+    width: 300px;
+    margin: 20px 69px 20px;
+}
+
+.btn-salvar{
+    background-color: gainsboro;
+    border: 1px solid grey;
+    padding: 7px;
+    width: 250px;
+    margin: 20px 69px 20px;
+    border-radius: 10px;
+}
+
+.btn-salvar:hover {
+    background-color: rgb(131, 111, 255);
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+}

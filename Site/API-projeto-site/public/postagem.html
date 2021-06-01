@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login || Quarta Capa</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style-postagem.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+    <!-- INÍCIO HEADER -->
+    <div class="header">
+        <div class="container">
+            <div class="logo-header">
+                <a href="index.html"> <img src="./img/LOGOTIPO.png" alt="" style="width: 65%; margin: 12px;"> </a> 
+            </div>
+            
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="postagem.html">Postagens</a></li>
+                    <li><a href="ranking.html">Ranking dos Livros</a></li>
+                    <button onclick="sair()" id="sair" class="btn-sair">Sair</button>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FINAL HEADER -->
+
+    <!--INICIO COMENTARIO-->
+    <div class="postagem">
+        <div class="container-postagem">
+
+            <div class="nomeUsuario">
+                <h3>Olá, <b id="b_usuario"></b> faça suas postagens!</h3>
+            </div>
+            
+            <div class="comentario">
+                <form id="form_publicar" method="post" onsubmit="return publicar()">
+                    <textarea id="" rows="3" cols="50" maxlength="250" class="textarea-padrao" name="descricao"></textarea>
+                    <br>
+                    <button id="btn_publicar" class="btn-green">Publicar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--FINAL COMENTARIO-->
+
+    <!-- INICIO HISTÓRICO DE POSTAGEM -->
+    <div class="feed">
+        <h1>Publicações</h1>
+        <div id="feed_container" class="feed-container">
+        </div>
+    </div>
+    <!-- FINAL HISTÓRICO DE POSTAGEM -->
+
+    <!-- INICIO FOOTER-->
+    <div class="footer">
+        <div class="container">
+            <div class="redes-sociais">
+                <a href="https://www.instagram.com/quarta.capa_/"> <img src="./img/insta.png" alt="" style="width: 18%;"> </a>
+                <a href="mailto:contato.quartacapa@gmail.com"><img src="./img/gmail.png" alt="" style="width: 20%;"> </a>
+                <a href="https://api.whatsapp.com/send?phone=5515997438595"> <img src="./img/whats.png" alt="" style="width: 19%;"> </a>
+                <a href="https://www.linkedin.com/in/quarta-capa-153266212/"> <img src="./img/linkedin.png" alt="" style="width: 18%;"> </a>
+            </div>
+            
+            <div class="direitos-footer">
+                <h2>Todos os direitos resenvados © 2021</h2>
+            </div>
+
+            <div class="logo-footer">
+                <a href="index.html"><img src="./img/LOGOTIPO.png" alt="" style="width: 80%; margin: 12px;"></a>
+            </div>
+            
+        </div>
+    </div>
+    <!-- FINAL FOOTER-->
+</body>
+</html>
+
+<script>
+
+    function publicar() {
+        console.log("entrei!")
+        var formulario = new URLSearchParams(new FormData(form_publicar));
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        fetch(`/publicacoes/publicar/fkUsuario`, {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+                obterPublicacoes();
+            } else {
+                console.log('Erro ao publicar!');
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function atualizarFeed(publicacoes) {
+        var feed = document.getElementById("feed_container");
+        feed.innerHTML = "";
+        for (let i = 0; i < publicacoes.length; i++) {
+            var publicacao = publicacoes[i];
+
+            var divPublicacao = document.createElement("div")
+            var divNome = document.createElement("div")
+            var divDescricao = document.createElement("div")
+
+            divNome.innerHTML = `${publicacao.nome}:`;
+            divDescricao.innerHTML = publicacao.descricao;
+
+            divPublicacao.className = "publicacao"
+            divNome.className = "nome";
+            divDescricao.className = "descricao";
+
+            divPublicacao.appendChild(divNome);
+            divPublicacao.appendChild(divDescricao);
+
+            feed.appendChild(divPublicacao);
+        }
+    }
+
+    function obterPublicacoes() {
+        fetch("/publicacoes")
+        .then(resposta => {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                   
+                    atualizarFeed(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção das publicações: ${error.message}`);
+        });
+    }
+
+    function obterPublicacoesPorUsuario(idUsuario) {
+        fetch(`/publicacoes/${idUsuario}`)
+        .then(resposta => {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // alert(JSON.stringify(resposta))
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção das publicações do usuário: ${error.message}`);
+        });
+    }
+
+    function sair() {
+
+    }
+
+
+</script>

@@ -1,0 +1,56 @@
+body, html { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 100vh; 
+    background-color: rgb(238, 233, 233);
+} 
+
+.sobre {
+    border-radius: 10px;
+    border: 2px solid rgb(131, 111, 255);
+    width: 800px;
+    margin-top: 50px;
+    padding: 20px;
+    float: left;
+}
+
+.container {
+    margin: auto;
+}
+
+.titulo-sobre {
+    float: left;
+    color: rgb(85, 26, 139);
+    font-weight: bolder;
+    padding-top: 30px;
+}
+
+.texto-sobre{
+    float: left;
+    text-align: justify;
+    color: rgb(155, 48, 255);
+    padding-top: 40px;
+}
+
+h1 {
+    width: 500px;
+}
+
+h4 {
+    width: 500px;
+}
+
+.foto {
+    float: left;
+    margin-left: 40px;
+}
+
+.foto img {
+    width: 200px; 
+    margin-bottom: 40px;
+    border-radius: 20px;
+    filter: drop-shadow(0px 0px 6px #c4b1b1);
+
+}

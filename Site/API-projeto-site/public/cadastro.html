@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro || Quarta Capa</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style-cadastro.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+    <!-- INÍCIO HEADER -->
+    <div class="header">
+        <div class="container">
+            <div class="logo-header">
+                <a href="index.html"> <img src="./img/LOGOTIPO.png" alt="" style="width: 65%; margin: 12px;"> </a> 
+            </div>
+            
+
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FINAL HEADER -->
+
+    <!--INICIO CADASTRO-->
+    <div class="cadastro">
+        <div class="container-cadastro">
+            <div class="titulo-cadastro">
+                <h2>Faça o cadastro para poder fazer publicações e ter acesso a nossa comunidade!</h2>
+            </div>
+            <br>
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <input class="input-padrao" type="text" name="nome_completo" placeholder="Nome Completo">
+                <br>
+                <input class="input-padrao" type="text" name="usuario" placeholder="Usuário">
+                <br>
+                <input class="input-padrao" type="text" name="email" placeholder="Email">
+                <br>
+                <input class="input-padrao" type="text" name="telefone" placeholder="Telefone">
+                <br>
+                <input class="input-padrao" type="password"name="senha" placeholder="Senha">
+    
+                <button class="button-cadastro" onclick="cadastrar()">Cadastrar</button> 
+            </form>
+        </div>
+    </div>
+    <!--FINAL CADASTRO-->
+
+    <!-- INICIO FOOTER-->
+    <div class="footer">
+        <div class="container">
+            <div class="redes-sociais">
+                <a href="https://www.instagram.com/quarta.capa_/"> <img src="./img/insta.png" alt="" style="width: 18%;"> </a>
+                <a href="mailto:contato.quartacapa@gmail.com"><img src="./img/gmail.png" alt="" style="width: 20%;"> </a>
+                <a href="https://api.whatsapp.com/send?phone=5515997438595"> <img src="./img/whats.png" alt="" style="width: 19%;"> </a>
+                <a href="https://www.linkedin.com/in/quarta-capa-153266212/"> <img src="./img/linkedin.png" alt="" style="width: 18%;"> </a>
+            </div>
+            
+            <div class="direitos-footer">
+                <h2>Todos os direitos resenvados © 2021</h2>
+            </div>
+
+            <div class="logo-footer">
+                <a href="index.html"><img src="./img/LOGOTIPO.png" alt="" style="width: 80%; margin: 12px;"></a>
+            </div>
+            
+        </div>
+    </div>
+    <!-- FINAL FOOTER-->
+</body>
+</html>
+
+<script>
+
+    function cadastrar() {
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='login.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                
+            }
+        });
+
+        return false;
+    }
+
+</script>

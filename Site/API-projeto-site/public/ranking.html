@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login || Quarta Capa</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style-postagem.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+</head>
+<body>
+    <!-- INÍCIO HEADER -->
+    <div class="header">
+        <div class="container">
+            <div class="logo-header">
+                <a href="index.html"> <img src="./img/LOGOTIPO.png" alt="" style="width: 65%; margin: 12px;"> </a> 
+            </div>
+            
+
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="postagem.html">Postagens</a></li>
+                    <li><a href="ranking.html">Ranking dos Livros</a></li>
+                    <button onclick="sair()" id="sair" class="btn-sair">Sair</button>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- FINAL HEADER -->
+    
+    <!-- INICIO HISTÓRICO DE POSTAGEM -->
+    <div class="lista-favoritos" id="lista_livros_favoritos">
+        <div class="container-lista">
+            <div class="titulo-lista">
+                <h2>Digite quais são os seus 3 livros favoritos</h2>
+            </div>
+
+            <div class="inputs-lista">
+                <center>
+                    <input type="text" placeholder="Digite seu livro favorito" class="input-lista">
+                    <br>
+                    <input type="text" placeholder="Digite seu livro favorito" class="input-lista">
+                    <br>
+                    <input type="text" placeholder="Digite seu livro favorito" class="input-lista">
+                    <br>
+                    <button onclick="salvar_livros()" class="btn-salvar">Salvar livros</button>
+                </center>
+            </div>
+        </div>
+    </div>
+    <!-- FINAL HISTÓRICO DE POSTAGEM -->
+
+    <!--INICIO RANKING-->
+    <div class="grafico-favoritos">
+        <div class="grafico" id="grafico_livros">
+            <canvas id="myChartBar"></canvas>
+        </div>
+    </div>
+    <!--FINAL RANKING-->
+
+
+    <!-- INICIO FOOTER-->
+    <div class="footer">
+        <div class="container">
+            <div class="redes-sociais">
+                <a href="https://www.instagram.com/quarta.capa_/"> <img src="./img/insta.png" alt="" style="width: 18%;"> </a>
+                <a href="mailto:contato.quartacapa@gmail.com"><img src="./img/gmail.png" alt="" style="width: 20%;"> </a>
+                <a href="https://api.whatsapp.com/send?phone=5515997438595"> <img src="./img/whats.png" alt="" style="width: 19%;"> </a>
+                <a href="https://www.linkedin.com/in/quarta-capa-153266212/"> <img src="./img/linkedin.png" alt="" style="width: 18%;"> </a>
+            </div>
+            
+            <div class="direitos-footer">
+                <h2>Todos os direitos resenvados © 2021</h2>
+            </div>
+
+            <div class="logo-footer">
+                <a href="index.html"><img src="./img/LOGOTIPO.png" alt="" style="width: 80%; margin: 12px;"></a>
+            </div>
+            
+        </div>
+    </div>
+    <!-- FINAL FOOTER-->
+</body>
+</html>
+
+<script>
+    var lista_livros = [];
+    
+    function salvar_livros() {
+        lista_livros_favoritos.style.display = "none";
+    }
+    
+
+const listaLivros = lista_livros;
+
+const dataBar = {
+  labels: listaLivros,
+  datasets: 
+  [
+    {
+      label: 'Livros preferidos dos usuários',
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)', 
+        'rgba(255, 159, 64, 0.2)', 
+        'rgba(255, 205, 86, 0.2)', 
+        'rgba(75, 192, 192, 0.2)', 
+        'rgba(54, 162, 235, 0.2)', 
+        'rgba(153, 102, 255, 0.2)', 
+        'rgba(201, 203, 207, 0.2)'
+      ],
+      borderColor: [
+        'rgb(255, 99, 132)',
+        'rgb(255, 159, 64)',
+        'rgb(255, 205, 86)',
+        'rgb(75, 192, 192)',
+        'rgb(54, 162, 235)',
+        'rgb(153, 102, 255)',
+        'rgb(201, 203, 207)'
+      ],
+      borderWidth: 1,
+      data: [1, 2, 3, 4, 5, 6],
+    }
+  ]
+};
+
+// Configurações do gráfico Barras
+const configBar = {
+  type: "bar",
+  data: dataBar,
+  options: {maintainAspectRatio: false },
+};
+
+var myChartBar = new Chart(document.getElementById('myChartBar'), configBar);
+
+</script>

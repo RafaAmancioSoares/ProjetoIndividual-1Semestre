@@ -1,0 +1,40 @@
+.header { 
+    background-color: rgb(162, 181, 205); 
+    height: 100px; 
+    border-bottom: 4px solid rgb(131, 111, 255); 
+    width: 100%; 
+} 
+
+.logo-header { 
+    width: 20%; 
+    margin-left: 60px; 
+    float: left; 
+} 
+
+a { 
+    text-decoration: none; 
+} 
+
+.header ul { 
+    list-style-type: none; 
+    float: right; 
+    margin-top: 45px; 
+} 
+
+.header li { 
+    float: left; 
+    margin-left: 18px; 
+} 
+
+.header a { 
+    text-transform: uppercase; 
+    color: rgb(0, 0, 139); 
+} 
+
+.header a:hover { 
+    font-weight: bold; 
+} 
+
+.nav ul { 
+    width: 30%; 
+} 
