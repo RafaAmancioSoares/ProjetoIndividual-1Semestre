@@ -103,7 +103,7 @@
         }).then(resposta => {
 
             if (resposta.ok) {
-                obterPublicacoes()
+                obterPublicacoes();
             } else {
                 console.log('Erro ao publicar!');
                 resposta.text().then(texto => {
@@ -140,6 +140,7 @@
     }
 
     function obterPublicacoes() {
+        b_usuario.innerHTML = `${sessionStorage.login_usuario_meuapp}`;
         fetch("/publicacoes/recuperando_post")
         .then(resposta => {
             if (resposta.ok) {
