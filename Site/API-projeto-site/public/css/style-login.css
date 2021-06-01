@@ -1,5 +1,10 @@
+body{
+    background-image: url(https://lh3.googleusercontent.com/proxy/HVn_n0yqqr10gM8wwZBIhaQJExnvDeSshZzLReywR7-K2ujBZZ0wbxLbO2L1ixSbUZhE1X6FsFtqfnrM-I913JGrgYgtYEJOI7pLAQMfojAtm0JKuQj4vAxMdmPja82-cUs5oaatYk_fKnhfYsvwJD3WrnJCbg);
+    background-size: cover;
+}
+
 .pag-login {
-    background-color: #ecf0f1;
+    background-image: url(https://lh3.googleusercontent.com/proxy/HVn_n0yqqr10gM8wwZBIhaQJExnvDeSshZzLReywR7-K2ujBZZ0wbxLbO2L1ixSbUZhE1X6FsFtqfnrM-I913JGrgYgtYEJOI7pLAQMfojAtm0JKuQj4vAxMdmPja82-cUs5oaatYk_fKnhfYsvwJD3WrnJCbg);
     text-align: center;
     border-radius: 20px;
 }
