@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
-var Publicacao = require('../models').Publicacao;
+var publicacao = require('../models').Post;
 
 /* ROTA QUE RECUPERA CRIA UMA PUBLICAÇÃO */
-router.post('/publicar/:idUsuario', function(req, res, next) {
+router.post('/post/:fkUsuario', function(req, res, next) {
     console.log("Iniciando Publicação...")
     
-	let idUsuario = req.params.idUsuario;
+	let idUsuario = req.params.fkUsuario;
 
-    Publicacao.create({
-        descricao: req.body.descricao,
+    publicacao.create({
+        comentario: req.body.descricao,
         fkUsuario: idUsuario
     }).then(resultado => {
         console.log("Post realizado com sucesso!!");
@@ -23,19 +23,14 @@ router.post('/publicar/:idUsuario', function(req, res, next) {
 })
 
 /* ROTA QUE RECUPERA TODAS AS PUBLICAÇÕES */
-router.get('/', function(req, res, next) {
+router.get('/recuperando_post', function(req, res, next) {
 	console.log('Recuperando todas as publicações');
 	
-    let instrucaoSql = `SELECT 
-    usuario.nome,
-    descricao
-    FROM publicacao
-    INNER JOIN usuario
-    ON Publicacao.fkUsuario = Usuario.id
-    ORDER BY publicacao.id DESC`;
+    let instrucaoSql = `select nomeUsuario, comentario from Usuario
+	inner join Post on fkUsuario = idUsuario;`;
 
 	sequelize.query(instrucaoSql, {
-		model: Publicacao,
+		model: publicacao,
 		mapToModel: true 
 	})
 	.then(resultado => {
@@ -52,19 +47,20 @@ router.get('/', function(req, res, next) {
 router.get('/:idUsuario', function(req, res, next) {
 	console.log('Recuperando todas as publicações');
 	
-	var idUsuario = req.params.idUsuario;
+	var idUsuario = req.params.fkUsuario;
 
     let instrucaoSql = `SELECT 
-    usuario.nome,
-    descricao
-    FROM publicacao
+    usuario.nomeUsuario,
+    comentario
+    FROM post
     INNER JOIN usuario
-    ON Publicacao.fkUsuario = Usuario.id
+    ON Post.fkUsuario = Usuario.id
+    ORDER BY Post.idPost DESC
     WHERE fkUsuario = ${idUsuario}
     ORDER BY publicacao.id DESC`;
 
 	sequelize.query(instrucaoSql, {
-		model: Publicacao,
+		model: Post,
 		mapToModel: true 
 	})
 	.then(resultado => {

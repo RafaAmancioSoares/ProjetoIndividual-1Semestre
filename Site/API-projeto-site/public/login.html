@@ -100,8 +100,8 @@
 
                 resposta.json().then(json => {
 
-                    sessionStorage.login_usuario_meuapp = json.login;
-                    sessionStorage.nome_usuario_meuapp = json.nome;
+                    sessionStorage.login_usuario_meuapp = json.nomeUsuario;
+                    sessionStorage.id_usuario_meuapp = json.idUsuario;
 
                     window.location.href = 'postagem.html';
                 });
