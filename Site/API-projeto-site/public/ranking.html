@@ -59,8 +59,8 @@
     <!-- FINAL HISTÓRICO DE POSTAGEM -->
 
     <!--INICIO RANKING-->
-    <div class="grafico-favoritos">
-        <div class="grafico" id="grafico_livros">
+    <div class="grafico-favoritos" id="grafico_livros" style="display: none;">
+        <div class="grafico">
             <canvas id="myChartBar"></canvas>
         </div>
     </div>
@@ -96,6 +96,8 @@
     
     function salvar_livros() {
         lista_livros_favoritos.style.display = "none";
+
+        grafico_livros.style.display = "block";
     }
     
 
