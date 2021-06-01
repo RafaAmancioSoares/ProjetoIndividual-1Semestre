@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
-   
+    <script src="../funcoes.js"></script>
+    
 </head>
 <body>
     <!-- INÍCIO HEADER -->
@@ -27,7 +28,7 @@
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="postagem.html">Postagens</a></li>
                     <li><a href="ranking.html">Ranking dos Livros</a></li>
-                    <button onclick="sair()" id="sair" class="btn-sair">Sair</button>
+                    <div onclick="logoff()" id="sair" class="btn-sair">Sair</div>
                 </ul>
             </div>
         </div>
@@ -168,9 +169,6 @@
         });
     }
 
-    function sair() {
-
-    }
 
 
 </script>
