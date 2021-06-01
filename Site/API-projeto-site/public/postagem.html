@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
-    <script src="/funcoes.js"></script>
+    <script src="../funcoes.js"></script>
     
 </head>
 <body>
@@ -28,7 +28,7 @@
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="postagem.html">Postagens</a></li>
                     <li><a href="ranking.html">Ranking dos Livros</a></li>
-                    <div onclick="logoff()" id="sair" class="btn-sair">Sair</div>
+                    <a onclick="logoff()" class="btn-sair">Sair</a>
                 </ul>
             </div>
         </div>
@@ -176,6 +176,14 @@
         });
     }
 
+    function logoff() {
+    finalizar_sessao();
+    sessionStorage.clear();
+    redirecionar_login();
+}
 
+function finalizar_sessao() {
+    fetch(`/usuarios/sair/${login_usuario}`, {cache:'no-store'}); 
+}
 
 </script>

@@ -69,3 +69,8 @@
     color: white;
     cursor: pointer;
 }
+
+.grafico-favoritos{
+    width: 400px;
+    height: 400px;
+}
