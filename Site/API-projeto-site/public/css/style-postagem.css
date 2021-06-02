@@ -1,8 +1,10 @@
 .postagem {
     width: 900px;
     margin: auto;
+    margin-top: 20px;
     border: 2px solid rgb(131, 111, 255);
     border-radius: 20px;
+    box-shadow:  3px 3px 5px 2px #ccc;
 }
 
 .nomeUsuario{
@@ -38,6 +40,7 @@
     border: 2px solid rgb(131, 111, 255);
     border-radius: 20px;
     padding: 20px;
+    box-shadow:  3px 3px 5px 2px #ccc;
 }
 
 .btn-green{
@@ -63,6 +66,7 @@
     border-radius: 10px; 
     padding: 20px;
     background-color: whitesmoke;
+    box-shadow:  3px 3px 5px 2px #ccc;
 }
 
 .titulo-lista{
