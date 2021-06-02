@@ -70,6 +70,7 @@ h1 {
     margin: 30px;
     display: flex;
     float: left;
+    box-shadow:  3px 3px 5px 2px #ccc;
 }  
 
 .titulo-box { 
@@ -88,9 +89,10 @@ h1 {
     background-color: rgb(230, 230, 250); 
     border-radius: 10px; 
     margin: 30px;
-    width: 40%;
+    width: 37%;
     display: flex;
     float: left;
+    box-shadow:  3px 3px 5px 2px #ccc;
 } 
 
 .img-forum { 
