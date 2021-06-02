@@ -29,7 +29,7 @@
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="postagem.html">Postagens</a></li>
                     <li><a href="ranking.html">Ranking dos Livros</a></li>
-                    <button onclick="sair()" id="sair" class="btn-sair">Sair</button>
+                    <li><a onclick="logoff()" class="btn-sair">Sair</a></li>
                 </ul>
             </div>
         </div>
@@ -45,11 +45,11 @@
 
             <div class="inputs-lista">
                 <center>
-                    <input type="text" placeholder="Digite seu livro favorito" class="input-lista">
+                    <input id="input_livro1" type="text" placeholder="Digite seu livro favorito" class="input-lista">
                     <br>
-                    <input type="text" placeholder="Digite seu livro favorito" class="input-lista">
+                    <input id="input_livro2" type="text" placeholder="Digite seu livro favorito" class="input-lista">
                     <br>
-                    <input type="text" placeholder="Digite seu livro favorito" class="input-lista">
+                    <input id="input_livro3" type="text" placeholder="Digite seu livro favorito" class="input-lista">
                     <br>
                     <button onclick="salvar_livros()" class="btn-salvar">Salvar livros</button>
                 </center>
@@ -61,7 +61,7 @@
     <!--INICIO RANKING-->
     <div class="grafico-favoritos" id="grafico_livros" style="display: none;">
         <div class="grafico">
-            <canvas id="myChartBar"></canvas>
+            <canvas id="myChartBar" class="chart"></canvas>
         </div>
     </div>
     <!--FINAL RANKING-->
@@ -98,6 +98,10 @@
         lista_livros_favoritos.style.display = "none";
 
         grafico_livros.style.display = "block";
+
+        lista_livros.push(input_livro1.value);
+        lista_livros.push(input_livro2.value);
+        lista_livros.push(input_livro3.value);
     }
     
 
@@ -110,20 +114,14 @@ const dataBar = {
     {
       label: 'Livros preferidos dos usuários',
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)', 
-        'rgba(255, 159, 64, 0.2)', 
-        'rgba(255, 205, 86, 0.2)', 
+        'rgba(255, 99, 132, 0.2)',  
         'rgba(75, 192, 192, 0.2)', 
-        'rgba(54, 162, 235, 0.2)', 
         'rgba(153, 102, 255, 0.2)', 
         'rgba(201, 203, 207, 0.2)'
       ],
       borderColor: [
         'rgb(255, 99, 132)',
-        'rgb(255, 159, 64)',
-        'rgb(255, 205, 86)',
         'rgb(75, 192, 192)',
-        'rgb(54, 162, 235)',
         'rgb(153, 102, 255)',
         'rgb(201, 203, 207)'
       ],
