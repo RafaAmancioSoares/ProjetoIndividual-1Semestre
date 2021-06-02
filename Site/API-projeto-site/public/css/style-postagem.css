@@ -1,7 +1,7 @@
 .postagem {
     width: 900px;
     margin: auto;
-    background-color: blue;
+    border: 2px solid rgb(131, 111, 255);
     border-radius: 20px;
 }
 
@@ -10,17 +10,21 @@
     align-items: center;
     justify-content: center;
     margin: 20px;
+    color: rgb(85, 26, 139);
 }
 
 .comentario{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
+    margin: 30px;
 }
 
 .textarea-padrao{
     width: 800px;
+    background-color: rgba(209, 168, 247, 0.616);
+    margin-left: 20px;
+}
+
+.btn-green{
+    margin-left: 20px;
 }
 
 .feed{
@@ -33,6 +37,24 @@
     height: 200px;
     background-color: coral;
 }
+
+.btn-green{
+    margin-left: 20px;
+    background-color: gainsboro;
+    border: 1px solid grey;
+    padding: 7px;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.btn-green:hover {
+    background-color: rgb(131, 111, 255);
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+}
+
+
 
 .lista-favoritos{
     border: 2px solid rgb(131, 111, 255); 
