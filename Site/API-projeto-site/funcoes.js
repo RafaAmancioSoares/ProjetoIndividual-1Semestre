@@ -1,4 +1,4 @@
-let login_usuario = req.params.nomeUsuario;;
+let login_usuario = req.params.nomeUsuario;
 let nome_usuario;
 
 function redirecionar_login() {
